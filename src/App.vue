@@ -11,7 +11,7 @@
                     </span> 
                     
                     <div class="header1-links">
-                        <div class="link">producers</div>
+                        <div class="link"><router-link to="/">Producers</router-link></div>
                         <div class="link"><router-link to="/about">Why Us?</router-link> </div>
                         <div class="link"><router-link to="/blog">The Green Life</router-link></div>
                         <div class="link">FAQs</div>
@@ -28,7 +28,10 @@
                     </div>
                     <div  v-if="user" class="hello-login">
                         <div class="hello-guest">
-                            <h3>{{ this.$store.state.profileFirstName }} {{this.$store.state.profileLastName }}</h3>
+                            <router-link clas="option" to="/profile">
+                                <h3>{{ this.$store.state.profileFirstName }} {{this.$store.state.profileLastName }}</h3>
+                            </router-link>
+                            
                         </div>
                         <div  class="login-or-signup">
                             <div><router-link to="/administration">Post Product</router-link></div>
@@ -737,7 +740,9 @@ export default {
 }
 </script>
 <style scoped>
-
+.logout{
+    cursor: pointer;
+}
 .section1 {
     display: flex;
     flex-direction: column;

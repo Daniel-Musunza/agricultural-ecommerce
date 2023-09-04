@@ -87,6 +87,7 @@
                               class="btn btn-primary btn-block btn-lg"
                               data-bs-toggle="modal"
                               data-bs-target="#exampleModal"
+                              @click="toggleCart()"
                             >
                               <div class="d-flex justify-content-between">
                                 <span>Checkout</span>
@@ -239,6 +240,7 @@
                   <!--  v-if="user" -->
                   <router-link to="/checkout">
                   <button
+                  @click="toggleExpand()"
                     type="button"
                     class="btn btn-primary btn-block btn-lg"
                     data-bs-toggle="modal"

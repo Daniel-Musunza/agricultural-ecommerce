@@ -3,10 +3,10 @@
        
         <section class="section2">
             <div class="section2-part">
-                <h1>About Kenyan Farm</h1>
+                <!-- <h1>About Kenyan Farm</h1>
                 <p>Welcome to Kenyan Farm, where we are dedicated to providing you with the freshest and finest farm produce from across Kenya.</p>
                 <h3>Our Mission</h3>
-                <p>We strive to connect you with the hardworking farmers who cultivate the land to bring you the most delicious and nutritious foods. From dairy products to fresh fruits, vegetables, and more, our commitment to quality and sustainability sets us apart.</p>
+                <p>We strive to connect you with the hardworking farmers who cultivate the land to bring you the most delicious and nutritious foods. From dairy products to fresh fruits, vegetables, and more, our commitment to quality and sustainability sets us apart.</p> -->
             </div>
         </section>
         

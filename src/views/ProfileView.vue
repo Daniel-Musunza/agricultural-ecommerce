@@ -3,7 +3,12 @@
   <ModalItem v-if="modalActive" :modalMessage="modalMessage" v-on:close-modal="closeModal" />
   <ProfilePhotoPreview v-show="this.$store.state.profilePhotoPreview"/>
   <div  class="row">
-    <img src="@/assets/img/logo.png" style = "height:200px; " class="logo" >
+    <span class="site-logo-img">
+      <div rel="home" aria-current="page">
+       <h3 class="custom-logo">Kenyan Farm</h3>
+                            
+       </div>
+  </span> 
       <div class="row">
         <div class="col-md-6 offset-md-3">
         <div class="col-md-12">
