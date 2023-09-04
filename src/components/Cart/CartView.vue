@@ -14,8 +14,8 @@
             <div class="incart-not-logged-in" v-if="!user">
                 <span>Welcome Guest!</span>
                 <p>Register with us to save your cart, save products for later, view order history, and more!</p>
-                <a href="#" class="register-button">Register</a>
-                <span>Already a customer? <a href="my-account/index.html">Sign in</a></span>
+                <router-link to="/signUp" class="register-button">Register</router-link>
+                <span>Already a customer? <router-link to="/signIn">Sign in</router-link></span>
             </div>
             <div class="cart-items">
                 <div class="with-items" >

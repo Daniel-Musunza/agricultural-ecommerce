@@ -5,7 +5,7 @@
             <p> Read all case studies about our products!</p>
         </section>
         <section id="blog">
-            <div v-if="profileAdmin" class="toggle-edit">
+            <div v-if="user" class="toggle-edit">
                 <span>Toggle Editing Post</span>
                 <input type="checkbox" v-model="editPost" />
             </div>
@@ -22,14 +22,10 @@
              <router-link to="/blog/readmore">Load More</router-link>
             </router-view>
         </section>
-       
     </div>
 </template>
 <script>
 import BlogCard from "../components/blogs/BlogCard.vue";
-// import items from '../cart.json'
-// import ReadMore from '@/components/ReadMore.vue'
-// @ is an alias to /src
 export default {
   name: 'BlogView',
   components: {
@@ -51,6 +47,9 @@ computed: {
      return this.$store.state.profileAdmin;
  }
 },
+created() {
+    this.$store.dispatch('getPost');
+  },
 beforeUnmount () {
     this.$store.commit("toggleEditPost", false);
 },
@@ -60,6 +59,7 @@ beforeUnmount () {
 
     #blog {
         position: relative;
+        margin-top: -250px;
     }
     .toggle-edit {
             display:flex;
