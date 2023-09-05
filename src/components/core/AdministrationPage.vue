@@ -3,7 +3,9 @@
     <AdministrationNav />
     <div class="create-post">
         <ProductPhotoPreview v-show="this.$store.state.productPhotoPreview" class="product-photo-preview" />
-        <TheLoader v-show="loading" class="loader" />
+        
+          <TheLoader   v-show="loading"/>
+       
         <div class="container">
             <div :class="{ invisible: !error }" class="err-message">
                 <p><span>Error:</span>{{ this.errorMsg }}</p>

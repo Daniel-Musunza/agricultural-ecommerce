@@ -20,7 +20,7 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <h4>Ksh {{productItem.productPrice}}</h4>
+                <h4>Ksh {{productItem.productPrice}} per Kg</h4>
             </div>
         </router-link>
         <button 
@@ -62,6 +62,7 @@ export default {
 };
 </script>
 <style scoped>
+
   .icons {
       display: flex;
       position: absolute;

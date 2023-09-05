@@ -13,78 +13,26 @@
         <section class="section3">
             <h2>100% ORGANIC<br>Vetted by Us!</h2>
             <div class="carousel">
-                <div class="card">
-                    <img src="@/assets/img/mango.jpeg" alt="Product 1">
-                    <h4>Kamba Mangoes</h4>
-                    <div class="p">Traditional mango  </div>
-                    <span>Ksh 100 per kg</span>
+                <div
+                 class="card" 
+                  v-for="(productItem, index) in productItems.slice(0,16)"
+                    :key="index"
+                    :productItem="productItem">
+                    <img :src="productItem.productCoverPhoto" alt="Product 1">
+                    <h4>{{productItem.productTitle }}</h4>
+                    <div class="p">{{productItem.productBrand }} </div>
+                    <span>Ksh {{productItem.productPrice}} per kg</span>
                     <div class="quantity">
                         <button>-</button>
                         <span>1</span>
                         <button>+</button>
                     </div>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button 
+                    class="add-to-cart"
+                    @click="addToCart(productItem)"
+                    >Add to Cart</button>
                 </div>
-                <div class="card">
-                    <img src="@/assets/img/mango.jpeg"  alt="Product 1">
-                    <h4>Kamba Mangoes</h4>
-                    <div class="p">Traditional mango  </div>
-                    <span>Ksh 100 per kg</span>
-                    <div class="quantity">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
-                    </div>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="@/assets/img/mango.jpeg"  alt="Product 1">
-                    <h4>Kamba Mangoes</h4>
-                    <div class="p">Traditional mango  </div>
-                    <span>Ksh 100 per kg</span>
-                    <div class="quantity">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
-                    </div>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="@/assets/img/mango.jpeg"  alt="Product 1">
-                    <h4>Kamba Mangoes</h4>
-                    <div class="p">Traditional mango  </div>
-                    <span>Ksh 100 per kg</span>
-                    <div class="quantity">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
-                    </div>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="@/assets/img/mango.jpeg"  alt="Product 1">
-                    <h4>Kamba Mangoes</h4>
-                    <div class="p">Traditional mango  </div>
-                    <span>Ksh 100 per kg</span>
-                    <div class="quantity">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
-                    </div>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="card">
-                    <img src="@/assets/img/mango.jpeg"  alt="Product 1">
-                    <h4>Kamba Mangoes</h4>
-                    <div class="p">Traditional mango  </div>
-                    <span>Ksh 100 per kg</span>
-                    <div class="quantity">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
-                    </div>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
+                
                 
                 <!-- Add more cards as needed -->
             </div>
@@ -193,17 +141,25 @@ export default {
         this.mobile = false;
         this.mobileNav = false;
         return;
-
-      }
+      },
+        addToCart(productItem) {
+        productItem.quantity = 1;
+        productItem.totalPrice = productItem.productPrice;
+        this.$store.commit("addToCart", productItem);
+        }
  },
  computed: {
     user() {
           return this.$store.state.user;
-     }
+     },
+     productItems() {
+       return this.$store.state.productItems;
+    },
     },
   created() {
     window.addEventListener("resize", this.checkSreen);
     this.checkScreen();
+    this.$store.dispatch('getProductItems');
   }
 };
 </script>
@@ -288,7 +244,7 @@ li{
     border-radius: 4px;
     padding: 20px;
     margin: 0 15px;
-    min-width: 300px;
+    max-width: 300px;
     text-align: center;
 }
 

@@ -337,7 +337,7 @@ export default {
 
 <style scoped>
 .h-custom{
-    position: fixed;
+    position: relative;
     width: 100%;
     background-color: #ccc;
     z-index: 999;
