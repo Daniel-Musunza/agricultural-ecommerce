@@ -96,7 +96,7 @@
           // Add other categories and their brands here
           brandsByCategory : {
           Dairy: ['Cheese', 'Milk', 'Yogurt', 'Butter'],
-          'Livestock and Poultry': ['Beef', 'Chicken', 'Turkey', 'Pork'],
+          LivestockAndPoultry: ['Bulls', 'Chicken', 'Goats', 'Pigs'],
           Seafood: ['Salmon', 'Shrimp', 'Tuna', 'Cod'],
           Eggs: ['Chicken Eggs', 'Duck Eggs'],
           Fruits: [
@@ -105,13 +105,13 @@
           ],
           Vegetables: [
             'Tomatoes', 'Carrots', 'Broccoli', 'Spinach', 'Onions', 'Cucumbers', 'Cabbages',
-            'Sukuma wiki', 'Mchicha', 'Ocra (Mabenda)', 'Egg plant (rafaya)'
+            'Sukuma Wiki', 'Mchicha', 'Ocra (Mabenda)', 'Egg Plant (rafaya)'
           ],
           Grains: [
             'Wheat', 'Rice', 'Corn', 'Barley', 'Maize', 'Sorghum', 'Millet'
           ],
           Legumes: [
-            'Beans', 'Peas', 'Cow peas', 'Green peas', 'Pojo', 'Pegeon peas'
+            'Beans', 'Peas', 'Cow Peas', 'Green Peas', 'Pojo', 'Pegeon Peas'
           ],
           HerbsAndSpices: [
             'Basil', 'Rosemary', 'Thyme', 'Cilantro', 'Mint', 'Oregano'

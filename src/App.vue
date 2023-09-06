@@ -110,7 +110,7 @@
                         </ul>
                     </div>
                    <div>
-                    <div v-if="dairy" class="small-sections-container">
+                    <div v-if="dairy" @click="toggleDairy()" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Dairy</span>
@@ -118,7 +118,7 @@
                                         <ul class="small-section-list">
                                             <li>
                                                 <i></i>
-                                                <span class="">Cheese</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Cheese' } }"><span class="">Cheese</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
@@ -126,11 +126,11 @@
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Yogurt</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Yogurt' } }"><span class="">Yogurt</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Butter</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Butter' } }"><span class="">Butter</span></router-link>
                                             </li>
                                         </ul>
                                     </section>
@@ -159,7 +159,7 @@
                                         
                                     </section>
                     </div>
-                    <div v-if="Livestockandpoutry" class="small-sections-container">
+                    <div v-if="Livestockandpoutry" @click="toggleLivestockAndPoutry()" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Livestock and Poultry</span>
@@ -167,19 +167,20 @@
                                         <ul class="small-section-list">
                                             <li>
                                                 <i></i>
-                                                <span class="">Beef</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Bulls' } }"><span class="">Bulls</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Chicken</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Chicken' } }"><span class="">Chicken</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Pork</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Pigs' } }"><span class="">Pigs</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Lamb</span>
+                                                <span class=""></span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Goats' } }"><span class="">Goats</span></router-link>
                                             </li>
                                         </ul>
                                     </section>
@@ -207,7 +208,7 @@
                                         </div>
                                     </section>
                     </div>
-                    <div v-if="seafood" class="small-sections-container">
+                    <div v-if="seafood" @click="toggleSeafood()" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Seafood</span>
@@ -215,19 +216,19 @@
                                         <ul class="small-section-list">
                                             <li>
                                                 <i></i>
-                                                <span class="">Fish (Salmon, Tuna, etc.)</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Salmon' } }"><span class="">Salmon</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Shrimp</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Shrimp' } }"><span class="">Shrimp</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Crab</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Crab' } }"><span class="">Crab</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Lobster</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Cod' } }"><span class="">Cod</span></router-link>
                                             </li>
                                         </ul>
                                     </section>
@@ -255,7 +256,7 @@
                                         </div>
                                     </section>
                     </div>
-                    <div v-if="eggs" class="small-sections-container">
+                    <div v-if="eggs" @click="toggleEggs()" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Eggs</span>
@@ -263,11 +264,11 @@
                                         <ul class="small-section-list">
                                             <li>
                                                 <i></i>
-                                                <span class="">Chicken Eggs</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Chicken Eggs' } }"><span class="">Chicken Eggs</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Duck Eggs</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Duck Eggs' } }"><span class="">Duck Eggs</span></router-link>
                                             </li>
                                         </ul>
                                     </section>
@@ -291,7 +292,7 @@
                                         </div>
                                     </section>
                     </div>
-                    <div v-if="fruits" class="small-sections-container">
+                    <div v-if="fruits" @click="toggleFruits()" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Fruits</span>
@@ -299,35 +300,35 @@
                                         <ul class="small-section-list">
                                             <li>
                                                 <i></i>
-                                                <span class="">Apples</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Apples' } }"><span class="">Apples</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Bananas</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Bananas' } }"><span class="">Bananas</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Oranges</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Oranges' } }"><span class="">Oranges</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Mangoes</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Mangoes' } }"><span class="">Mangoes</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Pineapples</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Pineapples' } }"><span class="">Pineapples</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Strawberries</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Strawberries' } }"><span class="">Strawberries</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Water Mellon</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Water Mellon' } }"><span class="">Water Mellon</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Grapes</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Grapes' } }"><span class="">Grapes</span></router-link>
                                             </li>
                                         </ul>
                                     </section>
@@ -355,7 +356,7 @@
                                         </div>
                                     </section>
                     </div>
-                    <div v-if="vegetables" class="small-sections-container" :class="{ 'overflowed': isOverflowed }">
+                    <div v-if="vegetables" @click="toggleVegetables()" class="small-sections-container" :class="{ 'overflowed': isOverflowed }">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Vegetables</span>
@@ -363,47 +364,47 @@
                                         <ul class="small-section-list">
                                             <li>
                                                 <i></i>
-                                                <span class="">Tomatoes</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Tomatoes' } }"><span class="">Tomatoes</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Carrots</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Carrots' } }"><span class="">Carrots</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Broccoli</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Broccoli' } }"><span class="">Broccoli</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Spinach</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Spinach' } }"><span class="">Spinach</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Onions</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Onions' } }"><span class="">Onions</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Cucumbers</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Cucumbers' } }"><span class="">Cucumbers</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Cabbages</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Cabbages' } }"><span class="">Cabbages</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Sukuma wiki</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Sukuma Wiki' } }"><span class="">Sukuma Wiki</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Mchicha</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Mchicha' } }"><span class="">Mchicha</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Ocra (Mabenda)</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Ocra (Mabenda)' } }"><span class="">Ocra (Mabenda)</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Egg plant (rafaya)</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Egg Plant (rafaya)' } }"><span class="">Egg Plant (rafaya)</span></router-link>
                                             </li>
                                         </ul>
                                     </section>
@@ -431,7 +432,7 @@
                                         </div>
                                     </section>
                     </div>
-                    <div v-if="grainsandcereals" class="small-sections-container">
+                    <div v-if="grainsandcereals" @click="toggleGrainsAndCereals()" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Grains and Cereals</span>
@@ -439,31 +440,31 @@
                                         <ul class="small-section-list">
                                             <li>
                                                 <i></i>
-                                                <span class="">Wheat</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Wheat' } }"><span class="">Wheat</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Rice</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Rice' } }"><span class="">Rice</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Corn</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Corn' } }"><span class="">Corn</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Barley</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Barley' } }"><span class="">Barley</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Maize</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Maize' } }"><span class="">Maize</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Sorghum</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Sorghum' } }"><span class="">Sorghum</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Millet</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Millet' } }"><span class="">Millet</span></router-link>
                                             </li>
                                         </ul>
                                     </section>
@@ -491,7 +492,7 @@
                                         </div>
                                     </section>
                     </div>
-                    <div v-if="legumes" class="small-sections-container">
+                    <div v-if="legumes" @click="toggleLegumes()" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Legumes</span>
@@ -499,27 +500,27 @@
                                         <ul class="small-section-list">
                                             <li>
                                                 <i></i>
-                                                <span class="">Beans</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Beans' } }"><span class="">Beans</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Peas</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Peas' } }"><span class="">Peas</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">cow peas</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Cow Peas' } }"><span class="">Cow Peas</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">green peas</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Green Peas' } }"><span class="">Green Peas</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">pojo</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Pojo' } }"><span class="">Pojo</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">pegeon peas</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Pegeon Peas' } }"><span class="">Pegeon Peas</span></router-link>
                                             </li>
                                         </ul>
                                     </section>
@@ -547,7 +548,7 @@
                                         </div>
                                     </section>
                     </div>
-                    <div v-if="herbsandspecies" class="small-sections-container">
+                    <div v-if="herbsandspecies" @click="toggleHerbsAndSpecies()" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Herbs and Spices </span>
@@ -555,27 +556,27 @@
                                         <ul class="small-section-list">
                                             <li>
                                                 <i></i>
-                                                <span class="">Basil</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Basil' } }"><span class="">Basil</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Rosemary</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Rosemary' } }"><span class="">Rosemary</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Thyme</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Thyme' } }"><span class="">Thyme</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Cilantro</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Cilantro' } }"><span class="">Cilantro</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Mint</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Mint' } }"><span class="">Mint</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Oregano</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Oregano' } }"><span class="">Oregano</span></router-link>
                                             </li>
                                         </ul>
                                     </section>
@@ -602,7 +603,7 @@
                                         </div>
                                     </section>
                     </div>
-                    <div v-if="miraaandmogoka" class="small-sections-container">
+                    <div v-if="miraaandmogoka"  @click="toggleMiraaAndMogoka()" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Miraa and Mogoka </span>
@@ -610,31 +611,31 @@
                                         <ul class="small-section-list">
                                             <li>
                                                 <i></i>
-                                                <span class="">Mbeere Mogoka</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Mbeere Mogoka' } }"><span class="">Mbeere Mogoka</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Mchele Mogoka</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Mchele Mogoka' } }"><span class="">Mchele Mogoka</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Kimeru Mogoka</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Kimeru Mogoka' } }"><span class="">Kimeru Mogoka</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Kangeta Miraa</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Kangeta Miraa' } }"><span class="">Kangeta Miraa</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Gachoka miraa</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Gachoka Miraa' } }"><span class="">Gachoka Miraa</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class=""> Igembe miraa </span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Igembe Miraa' } }"><span class="">Igembe Miraa</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class=""> Mutuati miraa </span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Mutuati Miraa' } }"><span class="">Mutuati Miraa</span></router-link>
                                             </li>
                                         </ul>
                                     </section>
