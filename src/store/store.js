@@ -44,13 +44,6 @@ const store = createStore({
             productPhotoPreview: null,
             editProducts: null,
             productDetails: "",
-            tshirts: [],
-            buyOneFree: [],
-            upcommingSeason: [],
-            repair: [],
-            megaSeasonSale: [],
-            shoes: [],
-            featuredProducts: [],
 
             // cart state
             cartItems: cart ? JSON.parse(cart) : [],
@@ -71,22 +64,8 @@ const store = createStore({
         },
         // products getters
         productItems: state => state.productItems,
-        tshirts: state => state.tshirts,
-        buyOneFree: state => state.buyOneFree,
-        upcommingSeason: state => state.upcommingSeason,
-        repair: state => state.repair,
-        megaSeasonSale: state => state.megaSeasonSale,
-        shoes: state => state.shoes,
-        featuredProducts: state => state.featuredProducts,
         productItemById: (state) => (id) => {
           return state.productItems.find(productItem => productItem.id === id)
-          ||  state.tshirts.find(productItem => productItem.id === id)
-          ||  state.buyOneFree.find(productItem => productItem.id === id)
-          ||  state.upcommingSeason.find(productItem => productItem.id === id)
-          ||  state.repair.find(productItem => productItem.id === id)
-          ||  state.megaSeasonSale.find(productItem => productItem.id === id)
-          ||  state.shoes.find(productItem => productItem.id === id)
-          ||  state.featuredProducts.find(productItem => productItem.id === id)
         },
 
         wishList: state => state.wishList,
@@ -223,27 +202,6 @@ const store = createStore({
             },
         filterProduct(state, payload) {
             state.productItems = state.productItems.filter((productItem) => productItem.productID !== payload)
-        },
-        filterTshirt(state, payload){
-            state.tshirts = state.tshirts.filter((productItem) => productItem.productID !== payload)
-        },
-        filterBuyOneFree(state, payload){
-            state.buyOneFree = state.buyOneFree.filter((productItem) => productItem.productID !== payload)
-        },
-        filterUpcommingSeason(state, payload){
-            state.upcommingSeason = state.upcommingSeason.filter((productItem) => productItem.productID !== payload)
-        },
-        filterMegaSeasonSale ( state, payload){
-            state.megaSeasonSale = state.megaSeasonSale.filter((productItem) => productItem.productID !== payload)
-        },
-        filterRepair(state, payload){
-            state.repair = state.repair.filter((productItem) => productItem.productID !== payload)
-        },
-        filterShoes(state, payload){
-            state.shoes = state.shoes.filter((productItem) => productItem.productID !== payload)
-        },
-        filterFeaturedProducts(state, payload){
-            state.featuredProducts = state.featuredProducts.filter((productItem) => productItem.productID !== payload)
         },
         // messages mutations
         setMessagesState(state, payload) {
@@ -404,160 +362,6 @@ const store = createStore({
             const getProductItems = await db.collection("productItems").doc(payload);
             await getProductItems.delete();
             commit('filterProduct', payload)
-        },
-        async getTshirts ({ state }) {
-            const dataBase = await db.collection('tshirts').orderBy('date', 'desc');
-            const dbResults = await dataBase.get();
-             dbResults.forEach((doc) => {
-                if (!state.tshirts.some((productItem) => productItem.productID === doc.id)) {
-                    const data = {
-                        productID: doc.data().productID,
-                        productCoverPhoto: doc.data().productCoverPhoto,
-                        // images: doc.data().images,
-                        productTitle: doc.data().productTitle,
-                        productDetails: doc.data().productDetails,
-                        productBrand: doc.data().productBrand,
-                        productPrice: doc.data().productPrice,
-                        productDate: doc.data().date,
-                        productCoverPhotoName: doc.data().productCoverPhotoName,
-                        // productImagesNames: doc.data().productImagesNames,
-                    };
-                    state.tshirts.push(data);
-                }
-            });
-            state.postLoaded = true;
-        },
-        async getBuyOneFree ({ state }) {
-            const dataBase = await db.collection('buyOneFree').orderBy('date', 'desc');
-            const dbResults = await dataBase.get();
-             dbResults.forEach((doc) => {
-                if (!state.buyOneFree.some((productItem) => productItem.productID === doc.id)) {
-                    const data = {
-                        productID: doc.data().productID,
-                        productCoverPhoto: doc.data().productCoverPhoto,
-                        // images: doc.data().images,
-                        productTitle: doc.data().productTitle,
-                        productDetails: doc.data().productDetails,
-                        productBrand: doc.data().productBrand,
-                        productPrice: doc.data().productPrice,
-                        productDate: doc.data().date,
-                        productCoverPhotoName: doc.data().productCoverPhotoName,
-                        // productImagesNames: doc.data().productImagesNames,
-                    };
-                    state.buyOneFree.push(data);
-                }
-            });
-            state.postLoaded = true;
-        },
-        async getUpcommingSeason ({ state }) {
-            const dataBase = await db.collection('upcommingSeason').orderBy('date', 'desc');
-            const dbResults = await dataBase.get();
-             dbResults.forEach((doc) => {
-                if (!state.upcommingSeason.some((productItem) => productItem.productID === doc.id)) {
-                    const data = {
-                        productID: doc.data().productID,
-                        productCoverPhoto: doc.data().productCoverPhoto,
-                        // images: doc.data().images,
-                        productTitle: doc.data().productTitle,
-                        productDetails: doc.data().productDetails,
-                        productBrand: doc.data().productBrand,
-                        productPrice: doc.data().productPrice,
-                        productDate: doc.data().date,
-                        productCoverPhotoName: doc.data().productCoverPhotoName,
-                        // productImagesNames: doc.data().productImagesNames,
-                    };
-                    state.upcommingSeason.push(data);
-                }
-            });
-            state.postLoaded = true;
-        },
-        async getRepair ({ state }) {
-            const dataBase = await db.collection('repair').orderBy('date', 'desc');
-            const dbResults = await dataBase.get();
-             dbResults.forEach((doc) => {
-                if (!state.repair.some((productItem) => productItem.productID === doc.id)) {
-                    const data = {
-                        productID: doc.data().productID,
-                        productCoverPhoto: doc.data().productCoverPhoto,
-                        // images: doc.data().images,
-                        productTitle: doc.data().productTitle,
-                        productDetails: doc.data().productDetails,
-                        productBrand: doc.data().productBrand,
-                        productPrice: doc.data().productPrice,
-                        productDate: doc.data().date,
-                        productCoverPhotoName: doc.data().productCoverPhotoName,
-                        // productImagesNames: doc.data().productImagesNames,
-                    };
-                    state.repair.push(data);
-                }
-            });
-            state.postLoaded = true;
-        },
-        async getMegaSeasonSale ({ state }) {
-            const dataBase = await db.collection('megaSeasonSale').orderBy('date', 'desc');
-            const dbResults = await dataBase.get();
-             dbResults.forEach((doc) => {
-                if (!state.megaSeasonSale.some((productItem) => productItem.productID === doc.id)) {
-                    const data = {
-                        productID: doc.data().productID,
-                        productCoverPhoto: doc.data().productCoverPhoto,
-                        // images: doc.data().images,
-                        productTitle: doc.data().productTitle,
-                        productDetails: doc.data().productDetails,
-                        productBrand: doc.data().productBrand,
-                        productPrice: doc.data().productPrice,
-                        productDate: doc.data().date,
-                        productCoverPhotoName: doc.data().productCoverPhotoName,
-                        // productImagesNames: doc.data().productImagesNames,
-                    };
-                    state.megaSeasonSale.push(data);
-                }
-            });
-            state.postLoaded = true;
-        },
-        async getShoes ({ state }) {
-            const dataBase = await db.collection('shoes').orderBy('date', 'desc');
-            const dbResults = await dataBase.get();
-             dbResults.forEach((doc) => {
-                if (!state.shoes.some((productItem) => productItem.productID === doc.id)) {
-                    const data = {
-                        productID: doc.data().productID,
-                        productCoverPhoto: doc.data().productCoverPhoto,
-                        // images: doc.data().images,
-                        productTitle: doc.data().productTitle,
-                        productDetails: doc.data().productDetails,
-                        productBrand: doc.data().productBrand,
-                        productPrice: doc.data().productPrice,
-                        productDate: doc.data().date,
-                        productCoverPhotoName: doc.data().productCoverPhotoName,
-                        // productImagesNames: doc.data().productImagesNames,
-                    };
-                    state.shoes.push(data);
-                }
-            });
-            state.postLoaded = true;
-        },
-        async getFeaturedProducts ({ state }) {
-            const dataBase = await db.collection('featuredProducts').orderBy('date', 'desc');
-            const dbResults = await dataBase.get();
-             dbResults.forEach((doc) => {
-                if (!state.featuredProducts.some((productItem) => productItem.productID === doc.id)) {
-                    const data = {
-                        productID: doc.data().productID,
-                        productCoverPhoto: doc.data().productCoverPhoto,
-                        // images: doc.data().images,
-                        productTitle: doc.data().productTitle,
-                        productDetails: doc.data().productDetails,
-                        productBrand: doc.data().productBrand,
-                        productPrice: doc.data().productPrice,
-                        productDate: doc.data().date,
-                        productCoverPhotoName: doc.data().productCoverPhotoName,
-                        // productImagesNames: doc.data().productImagesNames,
-                    };
-                    state.featuredProducts.push(data);
-                }
-            });
-            state.postLoaded = true;
         },
         // messages actions
         async getMessages ({ state }) {

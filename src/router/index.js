@@ -3,7 +3,7 @@ import CartView from '../components/Cart/CartView.vue';
 import WishList from '../components/Cart/WishList.vue';
 import HomeView from '../components/product/HomeView.vue';
 import ShopView from '../components/product/ShopView.vue';
-
+import CategorizedShopView from '../components/product/CategorizedShopView.vue';
 import BlogView from '../views/BlogView.vue';
 import ProfileView from '../views/ProfileView.vue';
 import AboutView from '../views/AboutView.vue';
@@ -120,6 +120,15 @@ const routes = [
     path: '/shop',
     name: 'shop',
     component: ShopView,
+    meta: {
+      title: "Shop",
+      //requiresAuth: true,
+    }
+  },
+  {
+    path: '/shop/:productBrand',
+    name: 'shop',
+    component: CategorizedShopView,
     meta: {
       title: "Shop",
       //requiresAuth: true,

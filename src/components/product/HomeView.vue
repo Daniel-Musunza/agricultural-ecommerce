@@ -78,7 +78,7 @@
                     </div>
                     <ul>
                         <li>Dairy</li>
-                        <li>Meat And Poultry</li>
+                        <li>Livestock And Poultry</li>
                         <li>Seafood</li>
                         <li>Eggs</li>
                         <li>Fruits</li>
@@ -228,7 +228,12 @@ li{
     padding: 50px 0;
     text-align: center;
 }
-
+.section3 h2{
+    margin-bottom: 20px;
+    color: green;
+    font-size: 1rem;
+    font-weight: 5rem;
+}
 .carousel {
     display: flex;
     overflow-x: auto; /* Enable horizontal scrolling */

@@ -48,10 +48,69 @@
                     <div class="header2">
                         <ul class="header2-list">
                             <li>
-                                <div class="small-sections-header">
+                                <div class="small-sections-header" @click="toggleDairy()">
                                     <span>Dairy</span>
                                 </div>
-                                <div class="small-sections-container">
+                               
+                            </li>
+                            <li>
+                                <div @click="toggleLivestockAndPoutry" class="small-sections-header">
+                                    <span>Livestock and Poultry</span>
+                                </div>
+                                
+                            </li>
+                            <li>
+                                <div @click="toggleSeafood" class="small-sections-header">
+                                    <span>Seafood</span>
+                                </div>
+                                
+                            </li>
+                            <li>
+                                <div @click="toggleEggs" class="small-sections-header">
+                                    <span>Eggs</span>
+                                </div>
+                               
+                            </li>
+                            <li>
+                                <div @click="toggleFruits" class="small-sections-header">
+                                    <span>Fruits</span>
+                                </div>
+                               
+                            </li>
+                            <li>
+                                <div @click="toggleVegetables" class="small-sections-header">
+                                    <span>Vegetables</span>
+                                </div>
+                               
+                            </li>
+                            <li>
+                                <div @click="toggleGrainsAndCereals" class="small-sections-header">
+                                    <span>Grains and Cereals</span>
+                                </div>
+                               
+                            </li>
+                            <li>
+                                <div @click="toggleLegumes" class="small-sections-header">
+                                    <span>Legumes</span>
+                                </div>
+                               
+                            </li>
+                            <li>
+                                <div @click="toggleHerbsAndSpecies" class="small-sections-header">
+                                    <span>Herbs and Spices</span>
+                                </div>
+                                
+                            </li>
+                            <li>
+                                <div @click="toggleMiraaAndMogoka" class="small-sections-header">
+                                    <span>Miraa and mogoka</span>
+                                </div>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                   <div>
+                    <div v-if="dairy" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Dairy</span>
@@ -63,7 +122,7 @@
                                             </li>
                                             <li>
                                                 <i></i>
-                                                <span class="">Milk</span>
+                                                <router-link :to="{ name: 'shop', params: { productBrand: 'Milk' } }"><span class="">Milk</span></router-link>
                                             </li>
                                             <li>
                                                 <i></i>
@@ -90,25 +149,20 @@
                                     </section>
                                     <section class="small-section-images">
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" />
-                                        <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/milk.jpg" />
+                                        <h3 class="hello-guest">Fresh Milk</h3>
                                         </div>
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/butter.png" />
+                                            <h3 class="hello-guest">Packed Butter</h3>
                                         </div>
                                         
                                     </section>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="small-sections-header">
-                                    <span>Meat and Poultry</span>
-                                </div>
-                                <div class="small-sections-container">
+                    </div>
+                    <div v-if="Livestockandpoutry" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
-                                            <span>Shop Meat and Poultry</span>
+                                            <span>Shop Livestock and Poultry</span>
                                         </div>
                                         <ul class="small-section-list">
                                             <li>
@@ -144,21 +198,16 @@
                                     </section>
                                     <section class="small-section-images">
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/bull.jpeg" />
+                                            <h3 class="hello-guest">A Bull</h3>
                                         </div>
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/chicken.jpg" />
+                                            <h3 class="hello-guest">A Chicken</h3>
                                         </div>
                                     </section>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="small-sections-header">
-                                    <span>Seafood</span>
-                                </div>
-                                <div class="small-sections-container">
+                    </div>
+                    <div v-if="seafood" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Seafood</span>
@@ -197,21 +246,16 @@
                                     </section>
                                     <section class="small-section-images">
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/fish1.jpg" />
+                                            <h3 class="hello-guest">Fish</h3>
                                         </div>
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/fish2.jpeg" />
+                                            <h3 class="hello-guest">Fish</h3>
                                         </div>
                                     </section>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="small-sections-header">
-                                    <span>Eggs</span>
-                                </div>
-                                <div class="small-sections-container">
+                    </div>
+                    <div v-if="eggs" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Eggs</span>
@@ -242,21 +286,12 @@
                                     </section>
                                     <section class="small-section-images">
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
-                                        </div>
-                                        <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/eggs.jpeg" />
+                                            <h3 class="hello-guest">Chicken Eggs</h3>
                                         </div>
                                     </section>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="small-sections-header">
-                                    <span>Fruits</span>
-                                </div>
-                                <div class="small-sections-container">
+                    </div>
+                    <div v-if="fruits" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Fruits</span>
@@ -311,21 +346,16 @@
                                     </section>
                                     <section class="small-section-images">
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/apples.jpeg" />
+                                            <h3 class="hello-guest">Apples</h3>
                                         </div>
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/banana.jpeg" />
+                                            <h3 class="hello-guest">Bananas</h3>
                                         </div>
                                     </section>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="small-sections-header">
-                                    <span>Vegetables</span>
-                                </div>
-                                <div class="small-sections-container">
+                    </div>
+                    <div v-if="vegetables" class="small-sections-container" :class="{ 'overflowed': isOverflowed }">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Vegetables</span>
@@ -392,21 +422,16 @@
                                     </section>
                                     <section class="small-section-images">
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/carrots.jpeg" />
+                                            <h3 class="hello-guest">Carrots</h3>
                                         </div>
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/cabbages.jpeg" />
+                                            <h3 class="hello-guest">Cabbages</h3>
                                         </div>
                                     </section>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="small-sections-header">
-                                    <span>Grains and Cereals</span>
-                                </div>
-                                <div class="small-sections-container">
+                    </div>
+                    <div v-if="grainsandcereals" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Grains and Cereals</span>
@@ -457,21 +482,16 @@
                                     </section>
                                     <section class="small-section-images">
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/maize.avif" />
+                                            <h3 class="hello-guest">Dry Maize</h3>
                                         </div>
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/sorghum.webp" />
+                                            <h3 class="hello-guest">Sorghum</h3>
                                         </div>
                                     </section>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="small-sections-header">
-                                    <span>Legumes</span>
-                                </div>
-                                <div class="small-sections-container">
+                    </div>
+                    <div v-if="legumes" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Legumes</span>
@@ -518,21 +538,16 @@
                                     </section>
                                     <section class="small-section-images">
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/beans.jpg" />
+                                            <h3 class="hello-guest">Beans</h3>
                                         </div>
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/cowpeas.webp" />
+                                            <h3 class="hello-guest">Cow Peas</h3>
                                         </div>
                                     </section>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="small-sections-header">
-                                    <span>Herbs and Spices</span>
-                                </div>
-                                <div class="small-sections-container">
+                    </div>
+                    <div v-if="herbsandspecies" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Herbs and Spices </span>
@@ -579,21 +594,15 @@
                                     </section>
                                     <section class="small-section-images">
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/basil.jpg" />
                                         </div>
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/oregano.jpg" />
+                                            <h3 class="hello-guest">Oregano</h3>
                                         </div>
                                     </section>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="small-sections-header">
-                                    <span>Miraa and mogoka</span>
-                                </div>
-                                <div class="small-sections-container">
+                    </div>
+                    <div v-if="miraaandmogoka" class="small-sections-container">
                                     <section class="small-section">
                                         <div class="small-section-heading">
                                             <span>Shop Miraa and Mogoka </span>
@@ -644,26 +653,23 @@
                                     </section>
                                     <section class="small-section-images">
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-pomip6hoqm2p6dkclfvgjfgmeaknxdbprj18dfzofw.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/miraa.jpg" />
+                                            <h3 class="hello-guest">Miraa</h3>
                                         </div>
                                         <div class="small-section-image">
-                                            <img class="br-loaded" src="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" data-breeze="https://greenspoon.co.ke/wp-content/uploads/elementor/thumbs/Meat-2-pomil11cjye3wdlfu59s0z6by11axhue6zb12g59wy.jpg" />
-                                            <h3 class="hello-guest">Beef meet</h3>
+                                            <img class="br-loaded" src="@/assets/img/mogoka.jpg" />
+                                            <h3 class="hello-guest">Mogoka</h3>
                                         </div>
                                     </section>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
-                   
+                   </div>
                 </header>
     </section>
     <div class="cart-opener" @click="toggleCart()">
             <div class="cart-unopened"><i class="fas fa-shopping-cart"></i><span> {{cartQuantity}} </span></div>
             <!-- <div class="cart-opened">X</div> -->
-        </div>
-        <CartView v-if="cart"/>
+    </div>
+    <CartView v-if="cart"/>
     <router-view/>
   </div>
 </template>
@@ -679,12 +685,142 @@ export default {
   data (){
     return {
         navigation: null,
-        cart: false
+        cart: false,
+        dairy: false,
+        Livestockandpoutry: false,
+        seafood: false,
+        eggs: false,
+        fruits: false,
+        vegetables: false,
+        grainsandcereals: false,
+        legumes: false,
+        herbsandspecies: false,
+        miraaandmogoka: false,
     }
   },
   methods: {
     toggleCart(){
         this.cart = !this.cart
+    },
+    toggleDairy(){
+        this.dairy = !this.dairy,
+        this.Livestockandpoutry = false,
+        this.seafood = false,
+        this.eggs = false,
+        this.fruits = false,
+        this.vegetables = false,
+        this.grainsandcereals = false,
+        this.legumes = false,
+        this.herbsandspecies = false,
+        this.miraaandmogoka = false
+    },
+    toggleLivestockAndPoutry(){
+        this.Livestockandpoutry = !this.Livestockandpoutry,
+        this.dairy = false,
+        this.seafood = false,
+        this.eggs = false,
+        this.fruits = false,
+        this.vegetables = false,
+        this.grainsandcereals = false,
+        this.legumes = false,
+        this.herbsandspecies = false,
+        this.miraaandmogoka = false
+    },
+    toggleSeafood(){
+        this.seafood = !this.seafood,
+        this.dairy = false,
+        this.Livestockandpoutry = false,
+        this.eggs = false,
+        this.fruits = false,
+        this.vegetables = false,
+        this.grainsandcereals = false,
+        this.legumes = false,
+        this.herbsandspecies = false,
+        this.miraaandmogoka = false
+    },
+    toggleEggs(){
+        this.eggs = !this.eggs,
+        this.dairy = false,
+        this.Livestockandpoutry = false,
+        this.seafood = false,
+        this.fruits = false,
+        this.vegetables = false,
+        this.grainsandcereals = false,
+        this.legumes = false,
+        this.herbsandspecies = false,
+        this.miraaandmogoka = false
+    },
+    toggleFruits(){
+        this.fruits = !this.fruits,
+        this.dairy = false,
+        this.Livestockandpoutry = false,
+        this.seafood = false,
+        this.eggs = false,
+        this.vegetables = false,
+        this.grainsandcereals = false,
+        this.legumes = false,
+        this.herbsandspecies = false,
+        this.miraaandmogoka = false
+    },
+    toggleVegetables(){
+        this.vegetables = !this.vegetables,
+        this.dairy = false,
+        this.Livestockandpoutry = false,
+        this.seafood = false,
+        this.eggs = false,
+        this.fruits = false,
+        this.grainsandcereals = false,
+        this.legumes = false,
+        this.herbsandspecies = false,
+        this.miraaandmogoka = false
+    },
+    toggleGrainsAndCereals(){
+        this.grainsandcereals = !this.grainsandcereals,
+        this.dairy = false,
+        this.Livestockandpoutry = false,
+        this.seafood = false,
+        this.eggs = false,
+        this.fruits = false,
+        this.vegetables = false,
+        this.legumes = false,
+        this.herbsandspecies = false,
+        this.miraaandmogoka = false
+    },
+    toggleLegumes(){
+        this.legumes = !this.legumes,
+        this.dairy = false,
+        this.Livestockandpoutry = false,
+        this.seafood = false,
+        this.eggs = false,
+        this.fruits = false,
+        this.vegetables = false,
+        this.grainsandcereals = false,
+        this.herbsandspecies = false,
+        this.miraaandmogoka = false
+    },
+    toggleHerbsAndSpecies(){
+        this.herbsandspecies = !this.herbsandspecies,
+        this.dairy = false,
+        this.Livestockandpoutry = false,
+        this.seafood = false,
+        this.eggs = false,
+        this.fruits = false,
+        this.vegetables = false,
+        this.grainsandcereals = false,
+        this.legumes = false,
+        this.miraaandmogoka = false
+    },
+    toggleMiraaAndMogoka(){
+        this.miraaandmogoka = !this.miraaandmogoka,
+        this.dairy = false,
+        this.Livestockandpoutry = false,
+        this.seafood = false,
+        this.eggs = false,
+        this.fruits = false,
+        this.vegetables = false,
+        this.grainsandcereals = false,
+        this.legumes = false,
+        this.herbsandspecies = false
     },
     signOut() {
             firebase.auth().signOut();
@@ -854,42 +990,42 @@ export default {
     position: relative;
 }
 .small-sections-container {
-    display: none;
-    position: relative;
-    top: 30px;
-    margin-top: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    color: black;
-    border-radius: 4px;
-    width: 100vw; /* Use viewport width for full screen width */
-    /* width: 100%; */
-    z-index: 999;
-    float: left;
+  display: flex;
+  position: relative;
+  top: 30px;
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: black;
+  border-radius: 4px;
+  width: 100vw; /* Use viewport width for full screen width */
+  max-height: 300px;
+  flex-wrap: wrap;
+  overflow: hidden; /* Hide overflow content */
 }
 
-.header2-list li:hover .small-sections-container {
-    display: flex;
+.overflowed {
+  flex-direction: column; /* Display the sections vertically */
+  overflow-y: scroll; /* Enable vertical scrolling for overflowed content */
 }
-.header2-list li:hover .small-sections-header {
-    display: none;
-}
+
 .small-section {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 30px;
 }
 
-.small-section-heading{
-    font-size: 20px;
-    padding-bottom: 20px;
-    font-weight: 700;
+.small-section-heading {
+  font-size: 20px;
+  padding-bottom: 20px;
+  font-weight: 700;
 }
+
 .small-section-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
 }
 
 .small-section-list li {
@@ -899,12 +1035,13 @@ export default {
     margin: 10px;
 }
 .small-section-image img {
-    width: 300px;
+    max-width: 200px;
     height: auto;
 }
 .small-section-images{
     display: flex;
     flex-direction: row;
+    margin-right: 10px;
 }
 
 .cart-opener {

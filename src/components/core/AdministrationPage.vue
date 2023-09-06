@@ -19,7 +19,7 @@
                   <label for="brand">Product Category</label>
                   <select v-model="productCategory" class="input-field" @change="filterProductBrands">
                     <option value="Dairy">Dairy</option>
-                    <option value="Meat and Poultry">Meat and Poultry</option>
+                    <option value="Livestock and Poultry">Livestock and Poultry</option>
                     <option value="Seafood">Seafood</option>
                     <option value="Eggs">Eggs</option>
                     <option value="Fruits">Fruits</option>
@@ -96,7 +96,7 @@
           // Add other categories and their brands here
           brandsByCategory : {
           Dairy: ['Cheese', 'Milk', 'Yogurt', 'Butter'],
-          'Meat and Poultry': ['Beef', 'Chicken', 'Turkey', 'Pork'],
+          'Livestock and Poultry': ['Beef', 'Chicken', 'Turkey', 'Pork'],
           Seafood: ['Salmon', 'Shrimp', 'Tuna', 'Cod'],
           Eggs: ['Chicken Eggs', 'Duck Eggs'],
           Fruits: [
