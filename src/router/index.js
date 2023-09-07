@@ -117,8 +117,8 @@ const routes = [
     }
   },
   {
-    path: '/shop',
-    name: 'shop',
+    path: '/shop1',
+    name: 'shop1',
     component: ShopView,
     meta: {
       title: "Shop",

@@ -4,12 +4,13 @@
     <div class="create-post">
         <ProductPhotoPreview v-show="this.$store.state.productPhotoPreview" class="product-photo-preview" />
         
-          <TheLoader   v-show="loading"/>
+          
        
         <div class="container">
             <div :class="{ invisible: !error }" class="err-message">
                 <p><span>Error:</span>{{ this.errorMsg }}</p>
             </div>
+            <TheLoader   v-show="loading"/>
             <div class="blog-info">
                 <div class="input-group">
                     <label for="title">Enter Product Name</label>
@@ -19,7 +20,7 @@
                   <label for="brand">Product Category</label>
                   <select v-model="productCategory" class="input-field" @change="filterProductBrands">
                     <option value="Dairy">Dairy</option>
-                    <option value="Livestock and Poultry">Livestock and Poultry</option>
+                    <option value="LivestockAndPoultry">Livestock and Poultry</option>
                     <option value="Seafood">Seafood</option>
                     <option value="Eggs">Eggs</option>
                     <option value="Fruits">Fruits</option>
@@ -55,7 +56,7 @@
                       <label for="product-photo">Upload Product Photo</label>
                       <span class="file-chosen">File Chosen: {{ this.$store.state.productPhotoName }}</span>
                   </div>
-                    <input type="file" ref="productPhoto" id="product-photo" @change="productFileChange" accept=".png, .jpg, .jpeg" class="file-input" />
+                    <input type="file" ref="productPhoto" id="product-photo" @change="productFileChange" accept=".png, .jpg, .jpeg, .webp, .avif" class="file-input" />
                 </div>
                 <div class="input-group">
                     

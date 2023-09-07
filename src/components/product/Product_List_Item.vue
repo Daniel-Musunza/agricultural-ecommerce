@@ -8,18 +8,18 @@
                 <div><i class="fa-solid fa-trash"></i></div>
             </div>
         </div>
-        <router-link :to="{ name: 'sproduct', params: { productid: this.productItem.productID }}">
+        <router-link :to="{ name: 'sproduct', params: { productid: this.productItem.productID }}" class="card-container">
             <img :src="productItem.productCoverPhoto">
             <div class="des">
-                <span>{{productItem.productBrand }}</span>
+                <!-- <span>{{productItem.productBrand }}</span> -->
                 <h5>{{productItem.productTitle }}</h5>
-                <div class="star">
+                <!-- <div class="star">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
-                </div>
+                </div> -->
                 <h4>Ksh {{productItem.productPrice}} per Kg</h4>
             </div>
         </router-link>
@@ -93,5 +93,16 @@ export default {
     margin-bottom: 15px;
     padding-block: 8px;
     border-radius: 15px;
+  }
+  .card-container{
+    min-height: 400px;
+
+  }
+  img{
+    width: 100%;
+    height: auto;
+  }
+  .des{
+    margin-bottom: 0;
   }
   </style>

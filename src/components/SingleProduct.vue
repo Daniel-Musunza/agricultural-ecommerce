@@ -13,7 +13,7 @@
             <h4>{{this.currentProduct[0].productTitle}}</h4>
             <h2>Ksh {{this.currentProduct[0].productPrice}}</h2>
             <label for="size">Specify Size</label>
-            <input type="number" v-model="productSize"/>
+            <input type="number" v-model="productSize" min="1"/>
 
             <button
             @click="addToCart(currentProduct[0])"

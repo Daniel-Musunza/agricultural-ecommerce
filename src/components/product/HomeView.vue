@@ -20,13 +20,13 @@
                     :productItem="productItem">
                     <img :src="productItem.productCoverPhoto" alt="Product 1">
                     <h4>{{productItem.productTitle }}</h4>
-                    <div class="p">{{productItem.productBrand }} </div>
+                    <!-- <div class="p">{{productItem.productBrand }} </div> -->
                     <span>Ksh {{productItem.productPrice}} per kg</span>
-                    <div class="quantity">
+                    <!-- <div class="quantity">
                         <button>-</button>
                         <span>1</span>
                         <button>+</button>
-                    </div>
+                    </div> -->
                     <button 
                     class="add-to-cart"
                     @click="addToCart(productItem)"
@@ -249,13 +249,15 @@ li{
     border-radius: 4px;
     padding: 20px;
     margin: 0 15px;
-    max-width: 300px;
+    min-width: 300px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .card img {
-    max-width: 100%;
-    height: auto;
+    width: auto;
+    height: 300px;
 }
 
 .card h4 {

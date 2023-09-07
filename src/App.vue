@@ -15,7 +15,7 @@
                         <div class="link"><router-link to="/about">Why Us?</router-link> </div>
                         <div class="link"><router-link to="/blog">The Green Life</router-link></div>
                         <div class="link">FAQs</div>
-                        <div class="link"><router-link to="/shop">Shop Now</router-link></div>
+                        <div class="link"><router-link to="/shop1">Shop Now</router-link></div>
                     </div>
                     <div  v-if="!user" class="hello-login">
                         <div class="hello-guest">
@@ -41,8 +41,15 @@
                 </div>
                 </header>
                 <div class="search-part">
-                    
-                    <input placeholder="Search for honestly delicious goodies..." class="search-form-input" />
+                    <input
+                    placeholder="Search for honestly delicious goodies..."
+                    class="search-form-input"
+                    v-model="searchQuery"
+                    @input="performSearch"
+                    />
+                    <ul>
+                    <li v-for="(result, index) in searchResults" :key="index">{{ result.name }}</li>
+                    </ul>
                 </div>
                 <header>
                     <div class="header2">
@@ -677,6 +684,7 @@
 <script>
 import CartView from "@/components/Cart/CartView"
 import firebase from "firebase/app"
+
 import "firebase/auth"
 export default {
   name: 'App',
@@ -697,6 +705,8 @@ export default {
         legumes: false,
         herbsandspecies: false,
         miraaandmogoka: false,
+        searchQuery: "",
+        searchResults: [],
     }
   },
   methods: {
@@ -846,7 +856,23 @@ export default {
         }
         this.navigation = false;
         return;
-    }
+    },
+    performSearch() {
+        if (!this.searchQuery) {
+        this.searchResults = []; // Clear the results if the query is empty
+        return;
+        }
+
+        const lowercaseQuery = this.searchQuery.toLowerCase();
+
+        this.searchResults = this.productItems.filter((productItem) => {
+        // Check if productItem.name is defined before calling toLowerCase()
+        if (productItem.name) {
+            return productItem.name.toLowerCase().includes(lowercaseQuery);
+        }
+        return false; // Handle the case where name is undefined
+        });
+    },
   },
   watch: {
     $route() {
@@ -854,6 +880,9 @@ export default {
     }
   },
   computed: {
+    productItems() {
+       return this.$store.state.productItems;
+    },
     user() {
           return this.$store.state.user;
     },
@@ -873,6 +902,7 @@ export default {
 
         window.addEventListener("resize", this.checkSreen);
         this.checkScreen();
+        this.$store.dispatch('getProductItems');
   }
 }
 </script>
