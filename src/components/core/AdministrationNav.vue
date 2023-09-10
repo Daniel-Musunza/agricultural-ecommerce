@@ -8,17 +8,17 @@
             <ul id="navbar">
                 <li><router-link to="/">Home</router-link></li>
                 <li><router-link to="/administration">Add New Products</router-link></li>
-                <li><router-link to="/createblog">Publish New Blogs</router-link></li>
-                <li><router-link to="/administrator">Add New Administrators</router-link></li>
-                <li><router-link to="/messages">Messages</router-link></li>
+                <li><router-link to="/createblog" v-if="admin">Publish New Blogs</router-link></li>
+                <!-- <li><router-link to="/administrator">Add New Administrators</router-link></li> -->
+                <li><router-link to="/messages" v-if="admin">Messages</router-link></li>
             </ul>
         </nav>
         <div id="mobile">
             <ul class="mobile-nav">
                 <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/createblog">Publish New Blogs</router-link></li>
-                <li><router-link to="/administrator">Add New Administrators</router-link></li>
-                <li><router-link to="/messages">Messages</router-link></li>
+                <li><router-link to="/createblog" v-if="admin">Publish New Blogs</router-link></li>
+                <!-- <li><router-link to="/administrator">Add New Administrators</router-link></li> -->
+                <li><router-link to="/messages" v-if="admin">Messages</router-link></li>
             </ul>
         </div>
     </section>
@@ -28,6 +28,11 @@
 <script>
 export default {
     name: "AdministrationNav",
+    computed: {
+        admin() {
+            return this.$store.state.admin;
+        }
+    }
 }
 </script>
 <style scoped>

@@ -255,7 +255,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
 
-  document.title = `  ${to.meta.title} | Kenyan Farm `;
+  document.title = `  ${to.meta.title} | Ukulima Bora Online Farm `;
   next();
 });
 

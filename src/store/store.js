@@ -21,7 +21,7 @@ const store = createStore({
 
             // auth state
             user: null,
-            profileAdmin: null,
+            admin: null,
             profileEmail: null,
             profileFirstName: null,
             profileLastName: null,
@@ -143,6 +143,7 @@ const store = createStore({
             state.profileFirstName = doc.data().firstName;
             state.profileLastName = doc.data().lastName;
             state.profileUsername = doc.data().username;
+            state.admin = doc.data().admin;
         },
         setProfileInitials (state){
             state.profileInitials = state.profileFirstName.match(/(\b\S)?/g).join("")+ state.profileLastName.match(/(\b\S)?/g).join("");

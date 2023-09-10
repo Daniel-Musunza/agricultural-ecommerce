@@ -3,8 +3,8 @@
        
         <section class="section2">
             <div class="section2-part">
-                <!-- <h1>About Kenyan Farm</h1>
-                <p>Welcome to Kenyan Farm, where we are dedicated to providing you with the freshest and finest farm produce from across Kenya.</p>
+                <!-- <h1>About Ukulima Bora Online Farm</h1>
+                <p>Welcome to Ukulima Bora Online Farm, where we are dedicated to providing you with the freshest and finest farm produce from across Kenya.</p>
                 <h3>Our Mission</h3>
                 <p>We strive to connect you with the hardworking farmers who cultivate the land to bring you the most delicious and nutritious foods. From dairy products to fresh fruits, vegetables, and more, our commitment to quality and sustainability sets us apart.</p> -->
             </div>
@@ -40,7 +40,7 @@
         <section class="section4">
             <div class="section4-part1">
                 <h2>Our Commitment to Quality</h2>
-                <p>At Kenyan Farm, we are dedicated to delivering the highest quality organic produce to our customers. Our commitment to sustainable farming practices ensures that you receive the freshest and most nutritious products straight from the farm.</p>
+                <p>At Ukulima Bora Online Farm, we are dedicated to delivering the highest quality organic produce to our customers. Our commitment to sustainable farming practices ensures that you receive the freshest and most nutritious products straight from the farm.</p>
             </div>
             <div class="section4-part2">
                 <img src="@/assets/img/Farm-image.jpg" alt="Farm Image">
@@ -60,7 +60,7 @@
             <div class="footer-container">
                 <div class="footer-part1">
                     <div class="footer-logo">
-                        <h3 class="custom-logo">Kenyan Farm</h3>
+                        <h3 class="custom-logo">Ukulima Bora Online Farm</h3>
                         <i>Proud Farmer</i>
                     </div>
                     <p>(+254) 794711950</p>

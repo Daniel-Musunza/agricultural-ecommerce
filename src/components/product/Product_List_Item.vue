@@ -1,6 +1,6 @@
 <template>
 <div class="pro">
-       <div v-show="editProducts" class="icons">
+       <div v-show="editProducts" class="icons" >
             <div @click="editProduct" class="icon">
                 <div class="edit"><i class="fa-solid fa-pen-to-square"></i></div>
             </div>
@@ -8,8 +8,10 @@
                 <div><i class="fa-solid fa-trash"></i></div>
             </div>
         </div>
-        <router-link :to="{ name: 'sproduct', params: { productid: this.productItem.productID }}" class="card-container">
+        <router-link :to="{ name: 'sproduct', params: { productid: this.productItem.productID }}"  >
+          <div class="card-container">
             <img :src="productItem.productCoverPhoto">
+          </div>
             <div class="des">
                 <!-- <span>{{productItem.productBrand }}</span> -->
                 <h5>{{productItem.productTitle }}</h5>
@@ -95,12 +97,12 @@ export default {
     border-radius: 15px;
   }
   .card-container{
-    min-height: 400px;
+    height: 300px;
 
   }
   img{
-    width: 100%;
-    height: auto;
+    width: auto;
+    max-height: 100%;
   }
   .des{
     margin-bottom: 0;

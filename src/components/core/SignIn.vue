@@ -2,7 +2,7 @@
 <div class="container" >
   <span class="site-logo-img">
       <div rel="home" aria-current="page">
-       <h3 class="custom-logo">Kenyan Farm</h3>
+       <h3 class="custom-logo">Ukulima Bora Online Farm</h3>
                             
        </div>
   </span> 

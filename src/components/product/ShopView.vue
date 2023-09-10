@@ -4,7 +4,7 @@
        <h2>/Stayhome</h2>
        <p> Save more with coupons & up to 70% off!</p>
     </section>
-    <div v-if="user" class="toggle-edit">
+    <div v-if="admin" class="toggle-edit">
       <span>Toggle Editing Product</span>
       <input type="checkbox" v-model="editProducts" />
     </div>
@@ -44,6 +44,9 @@ export default {
     },
     user() {
      return this.$store.state.user;
+    },
+    admin() {
+     return this.$store.state.admin;
     }
   },
   beforeUnmount () {
