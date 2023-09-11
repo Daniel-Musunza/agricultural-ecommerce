@@ -14,8 +14,8 @@
             <div class="incart-not-logged-in" v-if="!user">
                 <span>Welcome Guest!</span>
                 <p>Register with us to save your cart, save products for later, view order history, and more!</p>
-                <router-link to="/signUp" class="register-button">Register</router-link>
-                <span>Already a customer? <router-link to="/signIn">Sign in</router-link></span>
+                <router-link to="/signUp" class="register-button" @click="toggleCart()">Register</router-link>
+                <span>Already a customer? <router-link to="/signIn" @click="toggleCart()">Sign in</router-link></span>
             </div>
             <div class="cart-items">
                 <div class="with-items" >
@@ -105,7 +105,7 @@
                         <i class="fas fa-cart-arrow-down"></i>
                         <span class="cc-title">Your Cart is empty!</span>
                         <p>It looks like you haven't added any items to your cart yet.</p>
-                        <a href="#" class="cc-button">Browse Products</a>
+                        <router-link to="/shop1" class="cc-button">Browse Products</router-link>
                     </div>
                 </div>
             </div>

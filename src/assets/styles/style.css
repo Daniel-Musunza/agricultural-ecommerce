@@ -268,4 +268,37 @@ text-align: center;
         height:100%;
         border-radius: 20px;
     }
-  
+  @media(max-width: 900px){
+    #product1 .pro{
+        width: 100%;
+    }
+    .card-container{
+        height: auto;
+    }
+    #about-head{
+        display: flex;
+        flex-direction: column;
+    }
+    #about-head img {
+        width: 100%;
+        margin: 10px;
+    }
+   #blog{
+    margin-top: 250px;
+    padding: 0;
+    }
+    #blog .blog-box {
+        flex-direction: column;
+    
+    }
+    #blog .blog-img{
+    width: 100%;
+    margin: 0;
+    }
+    #blog img{
+        width: 100%;
+    }
+    #blog .blog-details{
+        width: 100%;
+    }
+  }

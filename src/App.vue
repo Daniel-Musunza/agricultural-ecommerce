@@ -17,6 +17,38 @@
                         <div class="link">FAQs</div>
                         <div class="link"><router-link to="/shop1">Shop Now</router-link></div>
                     </div>
+                    <div class="menu-bar" @click="toggleMobileMenu()">
+                        Menu
+                    </div>
+                    <div class="mobile-header1-links" v-if="mobileMenu" @click="toggleMobileMenu()">
+                        <div  v-if="!user" class="mobile-login">
+                            <div class="hello-guest">
+                                Hello Guest!
+                            </div>
+                            <div  class="login-or-signup">
+                                <router-link to="/signIn">Login /</router-link>
+                                <router-link to="/signUp">Sign Up</router-link>
+                            </div>
+                        </div>
+                        <div  v-if="user" class="mobile-login">
+                            <div class="hello-guest">
+                                <router-link clas="option" to="/profile">
+                                    <h3>{{ this.$store.state.profileFirstName }} {{this.$store.state.profileLastName }}</h3>
+                                </router-link>
+                                
+                            </div>
+                            <div  class="login-or-signup">
+                                <div><router-link to="/administration">Post Product</router-link></div>
+                                <div class='logout' @click="signOut()">Logout</div>
+                            </div>
+                        </div>
+                        <div class="link"><router-link to="/">Producers</router-link></div>
+                        <div class="link"><router-link to="/about">Why Us?</router-link> </div>
+                        <div class="link"><router-link to="/blog">The Green Life</router-link></div>
+                        <div class="link">FAQs</div>
+                        <div class="link"><router-link to="/shop1">Shop Now</router-link></div>
+                        
+                    </div>
                     <div  v-if="!user" class="hello-login">
                         <div class="hello-guest">
                             Hello Guest!
@@ -54,6 +86,73 @@
                 <header>
                     <div class="header2">
                         <ul class="header2-list">
+                            <li>
+                                <div class="small-sections-header" @click="toggleDairy()">
+                                    <span>Dairy</span>
+                                </div>
+                               
+                            </li>
+                            <li>
+                                <div @click="toggleLivestockAndPoutry" class="small-sections-header">
+                                    <span>Livestock and Poultry</span>
+                                </div>
+                                
+                            </li>
+                            <li>
+                                <div @click="toggleSeafood" class="small-sections-header">
+                                    <span>Seafood</span>
+                                </div>
+                                
+                            </li>
+                            <li>
+                                <div @click="toggleEggs" class="small-sections-header">
+                                    <span>Eggs</span>
+                                </div>
+                               
+                            </li>
+                            <li>
+                                <div @click="toggleFruits" class="small-sections-header">
+                                    <span>Fruits</span>
+                                </div>
+                               
+                            </li>
+                            <li>
+                                <div @click="toggleVegetables" class="small-sections-header">
+                                    <span>Vegetables</span>
+                                </div>
+                               
+                            </li>
+                            <li>
+                                <div @click="toggleGrainsAndCereals" class="small-sections-header">
+                                    <span>Grains and Cereals</span>
+                                </div>
+                               
+                            </li>
+                            <li>
+                                <div @click="toggleLegumes" class="small-sections-header">
+                                    <span>Legumes</span>
+                                </div>
+                               
+                            </li>
+                            <li>
+                                <div @click="toggleHerbsAndSpecies" class="small-sections-header">
+                                    <span>Herbs and Spices</span>
+                                </div>
+                                
+                            </li>
+                            <li>
+                                <div @click="toggleMiraaAndMogoka" class="small-sections-header">
+                                    <span>Miraa and mogoka</span>
+                                </div>
+                                
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header2-mobile">
+                        <div class="open-header2-list" @click="toggleFilteredProducts()">
+                           <h2>Filter products</h2> 
+                        </div>
+                        <ul class="header2-list" v-if="filteredProducts" @click="toggleFilteredProducts()">
                             <li>
                                 <div class="small-sections-header" @click="toggleDairy()">
                                     <span>Dairy</span>
@@ -707,6 +806,8 @@ export default {
         miraaandmogoka: false,
         searchQuery: "",
         searchResults: [],
+        filteredProducts: null,
+        mobileMenu: null
     }
   },
   methods: {
@@ -832,6 +933,12 @@ export default {
         this.grainsandcereals = false,
         this.legumes = false,
         this.herbsandspecies = false
+    },
+    toggleFilteredProducts(){
+        this.filteredProducts = !this.filteredProducts
+    },
+    toggleMobileMenu(){
+        this.mobileMenu = !this.mobileMenu
     },
     signOut() {
             firebase.auth().signOut();
@@ -983,7 +1090,7 @@ export default {
    
 }
 
-.header2-list {
+.header2 .header2-list {
     display: flex;
     list-style: none;
     padding: 0;
@@ -991,22 +1098,22 @@ export default {
     /* Add scrollbar styles */
 }
 
-.header2-list::-webkit-scrollbar {
+.header2 .header2-list::-webkit-scrollbar {
     width: 10px; /* Width of the scrollbar */
 }
 
-.header2-list::-webkit-scrollbar-thumb {
+.header2 .header2-list::-webkit-scrollbar-thumb {
     background-color: rgb(19, 137, 4); /* Color of the thumb */
     border-radius: 5px; /* Rounded corners for the thumb */
 }
 
-.header2-list::-webkit-scrollbar-track {
+.header2 .header2-list::-webkit-scrollbar-track {
     background-color: rgb(19, 137, 4); /* Color of the track */
     border-radius: 5px; /* Rounded corners for the track */
 }
 
 
-.header2-list li {
+.header2 .header2-list li {
     margin: 0 20px;
     cursor: pointer;
     position: relative;
@@ -1098,5 +1205,87 @@ export default {
 
 .cart-unopened span {
     color: #f5c200;
+}
+@media (max-width: 900px) {
+    .custom-logo
+    {
+        font-size: 25px;
+        font-weight: 550;
+    }
+    .header1-links, .hello-login, .search-part{
+        display: none;
+    }
+    .menu-bar{
+        position: fixed;
+        top: 50px; /* Adjust the top position as needed */
+        right: 20px; /* Display to the right */
+        border-radius: 50%;
+        background-color: green;
+        border: 1px solid #000;
+        font-size: 20px;
+        width: 50px;
+        height: 50px;
+        z-index: 999;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+    }
+    .cart-opener{
+        top: 110px;
+        right: 20px;
+    }
+    .header2{
+        display: none;
+    }
+    .header2-mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        background-color: rgb(19, 137, 4);
+        color: #fff;
+    }
+    .header2-mobile .header2-list {
+        align-items: right;
+    }
+    .header2-mobile .header2-list li {
+        margin-left: 10px;
+    }
+    .open-header2-list h2{
+        
+        margin: 20px;
+    }
+    .small-sections-container {
+        max-height: fit-content;
+        overflow-y: scroll;
+    }
+    .mobile-header1-links{
+        position: fixed;
+        top: 110px;
+        left: 0;
+        width: 200px;
+        background-color: #ccc;
+        display: flex;
+        flex-direction: column;
+        z-index: 999;
+        box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        border-radius: 8px;
+        font-family: 'Lexend Deca', Helvetica, Arial, sans-serif;
+    }
+    .mobile-login{
+        margin-bottom: 20px;
+    }
+}
+@media (min-width: 900px) {
+    .menu-bar{
+        display: none
+    }
+    .header2-mobile{
+        display: none;
+    }
 }
 </style>

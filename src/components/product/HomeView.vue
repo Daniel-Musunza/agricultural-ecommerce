@@ -461,4 +461,12 @@ footer {
     background-color: #f5c200;
 }
 
+@media (max-width: 900px) {
+    .section2{
+        margin-top: 100px;
+    }
+    .section4 {
+        flex-direction: column;
+    }
+}
 </style>
