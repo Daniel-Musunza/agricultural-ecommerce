@@ -18,15 +18,20 @@
                   v-for="(productItem, index) in productItems.slice(0,16)"
                     :key="index"
                     :productItem="productItem">
-                    <img :src="productItem.productCoverPhoto" alt="Product 1">
-                    <h4>{{productItem.productTitle }}</h4>
-                    <!-- <div class="p">{{productItem.productBrand }} </div> -->
-                    <span>Ksh {{productItem.productPrice}} per kg</span>
-                    <!-- <div class="quantity">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
-                    </div> -->
+                    <router-link :to="{ name: 'sproduct', params: { productid: productItem.productID }}"  >
+                        <div class="card-img">
+                            <img :src="productItem.productCoverPhoto" alt="Product 1">
+                        </div>
+                        
+                        <h4>{{productItem.productTitle }}</h4>
+                        <!-- <div class="p">{{productItem.productBrand }} </div> -->
+                        <span>Ksh {{productItem.productPrice}} per kg</span>
+                        <!-- <div class="quantity">
+                            <button>-</button>
+                            <span>1</span>
+                            <button>+</button>
+                        </div> -->
+                    </router-link>
                     <button 
                     class="add-to-cart"
                     @click="addToCart(productItem)"
@@ -255,11 +260,16 @@ li{
     flex-direction: column;
 }
 
-.card img {
+.card .card-img {
     width: auto;
     height: 300px;
 }
 
+.card .card-img img{
+    width: 100%;
+    max-height: 300px;
+    z-index: 0;
+}
 .card h4 {
     font-size: 24px;
     margin: 10px 0;
