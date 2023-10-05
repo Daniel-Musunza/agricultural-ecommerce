@@ -26,6 +26,7 @@
                     <br>
                     <label for="paymentMethod">Enter Payment Method .</label>
                     <select v-model="paymentMethod">
+                      <option value="icp" style="color: rgb(225, 23, 155);">ICP</option>
                       <option value="mpesa" style="color: green;">M-PESA</option>
                       <option value="visa" style=" background:linear-gradient(45deg, rgb(20, 51, 90), rgb(253, 249, 10));">VISA/MASTERCARD</option>
                     </select>
@@ -39,6 +40,16 @@
                         <button @click='pay' :disabled='!complete' class="submit-btn">
                            Pay
                         </button>
+                      </div>
+                      <div v-if="paymentMethod ==='icp'">
+                        <img class="visa-logo" src="@/assets/img/pay/icp.png" alt="">
+                        
+                        <a href="https://agrinsurance.vercel.app/">
+                          <button style="background-color: rgb(225, 23, 155);" class="submit-btn">
+                           Pay
+                        </button>
+                        </a>
+                        
                       </div>
                       <div class="visa" v-if="paymentMethod ==='visa'">
                       <VisaCard />
